@@ -50,7 +50,7 @@ export default function UrlForm() {
                 placeholder="Custom alias"
                 value={alias}
                 onChange={(e) => {
-                    setOriginalUrl(e.target.value);
+                    setAlias(e.target.value);
                     setMessage("");
                     setShortUrl("");
 
