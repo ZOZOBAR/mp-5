@@ -35,13 +35,13 @@ export default function UrlForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <form onSubmit={handleSubmit} className="form">
             <input
                 type="url"
                 placeholder="Enter original URL"
                 value={originalUrl}
                 onChange={(e) => setOriginalUrl(e.target.value)}
-                className="border border-gray-300 p-3 rounded text-gray-900 placeholder:text-gray-400"
+                className="input"
                 required
             />
 
@@ -56,18 +56,18 @@ export default function UrlForm() {
 
                 }}
 
-                className="border border-gray-300 p-3 rounded text-gray-900"
+                className="input"
                 required
             />
 
-            <button type="submit" className="bg-blue-600 text-white p-3 rounded">
+            <button type="submit" className="button">
                 Shorten URL
             </button>
 
-            {message && <p>{message}</p>}
+            {message && <p className="message">{message}</p>}
 
             {shortUrl && (
-                <a href={shortUrl} className="text-blue-600 underline">
+                <a href={shortUrl} className="short-link">
                     {shortUrl}
                 </a>
             )}

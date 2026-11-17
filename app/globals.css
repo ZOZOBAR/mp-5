@@ -1,26 +1,101 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base page styles */
+* {
+    box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background-color: #f3f4f6;
+    color: #111827;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Main page container */
+.main {
+    display: flex;
+    min-height: 100vh;
+    padding: 24px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* White card that holds the form */
+.card {
+    width: 100%;
+    max-width: 512px;
+    padding: 32px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Page title */
+.title {
+    margin: 0 0 12px;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+/* Short description under the title */
+.subtitle {
+    margin: 0 0 24px;
+    color: #4b5563;
+}
+
+/* Form layout */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Text inputs for URL and alias */
+.input {
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    color: #111827;
+    font-size: 16px;
+}
+
+.input::placeholder {
+    color: #9ca3af;
+}
+
+/* Submit button */
+.button {
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #2563eb;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #1d4ed8;
+}
+
+/* Success or error message */
+.message {
+    margin: 0;
+}
+
+/* Generated short link */
+.short-link {
+    color: #2563eb;
+    text-decoration: underline;
+    word-break: break-all;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 600px) {
+    .card {
+        padding: 24px;
+    }
+
+    .title {
+        font-size: 26px;
+    }
 }
