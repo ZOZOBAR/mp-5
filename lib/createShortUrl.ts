@@ -62,6 +62,22 @@ export default async function createShortUrl(
         };
     }
 
+    // Check that the URL really exists by sending a request to it.
+    // A correctly formatted URL like "https://asdf" can still point nowhere,
+    // so if the site cannot be reached within 5 seconds, the URL is rejected.
+    // Any response (even 404 or 405) means the site exists, so only network errors fail.
+    try {
+        await fetch(parsedUrl, {
+            method: "HEAD",
+            signal: AbortSignal.timeout(5000)
+        });
+    } catch {
+        return {
+            success: false,
+            message: "Could not verify URL. Please check the link and try again."
+        };
+    }
+
     try {
         const collection = await getCollection(URLS_COLLECTION);
 
